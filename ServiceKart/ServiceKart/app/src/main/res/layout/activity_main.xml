@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="#ffffff"
+        android:id="@+id/relativeLayout">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_logo"/>
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_marginTop="57dp"
+        android:gravity="center"
+        android:background="@drawable/edittextstyle"
+        android:hint="Email Id"
+        android:textColorHighlight="#302a2e"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:hint="UserName"
+        android:background="@drawable/edittextstyle"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/editText2"
+        android:gravity="center"
+        android:hint="Password"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/edittextstyle"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:gravity="center"
+        android:hint="Confirm Password"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/edittextstyle"
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="#ffffff"
+        android:id="@+id/button"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editText4"
+        android:background="@drawable/buttonshape"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4" />
+
+</RelativeLayout>

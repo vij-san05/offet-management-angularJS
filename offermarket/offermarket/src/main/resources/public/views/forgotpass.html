@@ -1,0 +1,21 @@
+<div class="login-box" ng-controller="retailloginpass">
+      
+      <div class="login-box-body">
+        <p class="login-box-msg">Enter your email to get the password</p>
+        <form name="myForm">
+          <div class="form-group has-feedback">
+              <input class="form-control"  type="email" width="200"  name="email" ng-model="user.email"  required/>
+    <span ng-show="myForm.email.$error.required && myForm.email.$dirty">required</span>
+   <span ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty">invalid email</span>
+  
+            
+          </div>
+           <div class="row">
+            <div class="col-xs-4">
+                <button type="submit" ng-disabled="!myForm.$valid" ng-click="changepass()" class="btn btn-primary btn-block btn-flat">Request Password Change</button>
+            </div><!-- /.col -->
+          </div> 
+            
+        </form>
+      </div>
+</div>

@@ -1,0 +1,50 @@
+        <section class="content">  
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">User Permissions/Outlet Permissions</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                      <input type="text" name="table_search" ng-model="searchKeyword" class="form-control input-sm pull-right" style="width: 300px;height:37px" placeholder="Search"/>
+                      
+                    </div>
+                  </div>
+                </div><!-- /.box-header -->
+                <div  ng-controller="usermanger" class="box-body table-responsive no-padding"   >
+                  <table class="table table-hover">
+                    <tr>
+                      <th>user email</th>
+                      <th>Role</th>
+                      <th>User Status</th>
+                      <th>Permission</th>
+                      <th> </th>
+                    </tr>       
+                    <tr class="success-{{user.done}}" ng-repeat="user in users  | filter: searchKeyword | startFrom:currentPage*pageSize | limitTo:pageSize ">    
+                    <td>{{user.email}}</td>
+                    <td> {{user.role === 1 ? "Admin" : user.role === 2 ? "Retail User" : "Public User" }}</td>
+                    
+                    <td><span class="{{user.status ===1 ? 'label label-success' : 'label label-danger'}}" >{{user.status ===1 ? "Enabled" : "Disabled"}}</span></td>
+                       
+                    <td>
+                          <button type="button" ng-click="changepermission($index)">Enable/Disable</button>
+                        
+                       
+                    </td>
+                    
+                    </tr>    
+                  </table>
+                 
+                 <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>

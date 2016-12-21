@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="offermanager">
+    <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+    <class>com.retailshops.offermarket.model.Log</class>
+    <class>com.retailshops.offermarket.model.Offer</class>
+    <class>com.retailshops.offermarket.model.Outlet</class>
+    <class>com.retailshops.offermarket.model.Point</class>
+    <class>com.retailshops.offermarket.model.Product</class>
+    <class>com.retailshops.offermarket.model.Reward</class>
+    <class>com.retailshops.offermarket.model.Role</class>
+    <class>com.retailshops.offermarket.model.User</class>
+    <class>com.retailshops.offermarket.model.UserPoint</class>
+    <class>com.retailshops.offermarket.model.TransactionsLog</class>
+    <class>com.retailshops.offermarket.model.FinalPoints</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.ogm.datastore.provider" value="mongodb"/>
+      <property name="hibernate.ogm.datastore.database" value="offer"/>
+      <property name="hibernate.ogm.datastore.host" value="localhost"/>
+      <property name="hibernate.ogm.datastore.create_database" value="true"/>
+      <property name="hibernate.search.Rules.directory_provider" value="ram"/>
+      <property name="hibernate.ogm.datastore.provider" value="org.hibernate.ogm.datastore.mongodb.impl.MongoDBDatastoreProvider"/>
+      <!--  <property name="hibernate.ogm.datastore.username" value=""/>
+      <property name="hibernate.ogm.datastore.password" value=""/> -->
+    </properties>
+  </persistence-unit>
+</persistence>

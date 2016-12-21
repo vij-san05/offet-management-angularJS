@@ -1,0 +1,48 @@
+<div class="register-box" ng-controller="mainCtrl">
+      
+
+      <div class="register-box-body">
+        <p class="login-box-msg">Register a new membership</p> 
+
+<form class="form-horizontal"  name="myForm" ng-submit="updateUser()"  >
+   <div class="form-group has-feedback">
+   <label for="email">Email</label>
+   <input class="form-control"  type="email" readonly name="email" ng-model="user.email" check-email  required/>
+    <span ng-show="myForm.email.$error.required && myForm.email.$dirty">required</span>
+   <span ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty">invalid email</span>
+    <span class="error" style="color:red" ng-show="myForm.email.$error.isDuplicatedEmail"  >Email already used</span>
+ 
+    
+    <br />
+       
+   
+       <label for="username">Username</label>
+       <input  class="form-control" unique-username type="text" id="username" name="username" ng-model="user.username" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" required  />
+   <span ng-show="myForm.username.$error.required && myForm.username.$dirty">required</span>
+   <span ng-show="!myForm.username.$error.minLength && !myForm.username.$error.maxLength && myForm.username.$error.pattern && myForm.username.$dirty">Must start with a letter, and contain letters &amp; numbers only.</span>
+   <span ng-show="!myForm.username.$error.required && (myForm.username.$error.minlength || myForm.username.$error.maxlength) && myForm.username.$dirty">Username ust be between 5 and 20 characters.</span>
+  
+   <br />
+       
+       
+       <label for="password">Password</label>
+       <input   class="form-control" type="password" id="password" name="password" ng-model="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+   <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
+   <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+   <span ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+       <br />
+       
+       
+       <label for="password_c">Confirm Password</label>
+<input class="form-control"  type="password" 
+     ng-model="user.password" id="password_c" name="password_c"
+     password-match="password" required />
+    <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
+   <span ng-show="myForm.password_c.$error.unique">Passwords do not match.</span> 
+       <br/>
+      
+         <button type="submit" id="save" class="btn" ng-disabled="!myForm.$valid">Update</button>
+         </div>
+</form> 
+        
+        </div></div>

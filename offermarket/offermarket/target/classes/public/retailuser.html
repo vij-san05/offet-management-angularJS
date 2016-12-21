@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="retailuser">
+  <head>
+    <meta charset="UTF-8">
+    <title>Retail Offers| Log in</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+   <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/morris.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body class="login-page">
+      <div class="navbar navbar-default navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">Retail Market</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+       
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav navbar-left">
+              <li><a href="#/">Home</a></li>
+            <li><a href="#/outlets">Outlets</a></li>
+            <li><a href="#/products">Products</a></li>
+            <li><a href="#/sales">Sales</a></li>
+            <li><a href="#/pos">POS</a></li>
+            <li><a href="#/settings">Settings</a></li>
+          </ul>
+            
+
+          <ul class="nav navbar-nav navbar-right">
+              <li><div ng-controller="MyControlleredituserlogout" > <input type="button" value="logout" class="btn btn-primary "  ng-click="logout()" /> </div></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+      
+      <div class="container" ng-view="">
+
+
+</div>
+<script src="/js/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!--chart 
+<script src="/js/raphael-min.js"></script>
+<script src="/js/morris.min.js"></script> -->
+
+
+
+<script src="/js/angular-file-upload-shim.min.js"></script> 
+
+<script src="/js/angular.js"></script>
+
+<script src="/js/angular-file-upload.min.js"></script>
+<script src="/js/angular-route.js"></script>
+<script src="/js/angular-cookies.js"></script>
+<script src="/js/angular-sanitize.js"></script>
+<script src="/js/angular-resource.js"></script>
+
+<script src="/scripts/retailuser.js"></script>
+
+<script src="/js/highcharts.js"></script>
+<script src="/js/highcharts-ng.js"></script>
+
+
+  </body>
+</html>

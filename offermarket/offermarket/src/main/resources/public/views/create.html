@@ -1,0 +1,18 @@
+<form class="form-horizontal" role="form" ng-submit="createTodo()">
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">description</label>
+
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" placeholder="Write todo.." ng-model="todo.description">
+        </div>
+        <label for="code" class="col-sm-2 control-label">code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="code" placeholder="Write todo.." ng-model="todo.code">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">New Todo</button>
+        </div>
+    </div>
+</form>

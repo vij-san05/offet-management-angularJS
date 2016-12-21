@@ -1,0 +1,17 @@
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg"> Upload new Image </p>    
+            <form class="form-horizontal"  name="myFormimage" ng-submit="uploadShopImage()"  >
+                
+            <div ng-controller="MyCtrl">
+           <input type="text" value="{{aa[0].name}}"  >
+           <input type="file" id="fileupname" ng-model="aa" ng-file-select="onFileSelect($files)" accept="image/*"  >
+
+          <button ng-click="upload.abort()">Cancel Upload</button>
+           <img src="http://localhost:8083/uploads/{{aa[0].name}}" width="100" height=" 100" ng-model="imageloc" />    
+           </div>
+                
+                 
+            </form>    
+    </div>
+</div>   

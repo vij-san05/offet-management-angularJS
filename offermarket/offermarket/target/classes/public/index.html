@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html ng-app="indexapp" ng-controller="customersCtrl" ng-controller="customersCtrl" >
+	<head>
+		<title>Retail Offers</title>
+		<link href="/css/style_site.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!-- Global CSS for the page and tiles -->
+  		<link rel="stylesheet" href="/css/main_site.css">
+  		<!-- //Global CSS for the page and tiles -->
+		<!---start-click-drop-down-menu----->
+		<style>
+                    /* vertical alignment styles */
+
+.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}
+
+/* columns of same height styles */
+
+.row-full-height {
+  height: 100%;
+}
+.col-full-height {
+  height: 100%;
+  vertical-align: middle;
+}
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed;
+}
+.col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+
+/* visual styles */
+
+body {
+  padding-bottom: 40px;
+}
+h1 {
+  margin: 40px 0px 20px 0px;
+  color: #95c500;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+}
+[class*="col-"] {
+  padding-top: 1px;
+  padding-bottom: 3px;
+  border: 0px solid #000;
+  background: #F0EFEE; 
+  color:#555;
+}
+[class*="col-"]:before {
+  display: block;
+  position: relative;
+ /* content: "COL"; */
+  margin-bottom: 8px;
+  font-family: sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #658600;
+  text-align: left;
+}
+.col-full-height:before {
+  content:"";
+}
+.item {
+  width: 90%;
+  height: 100%;
+  border: 0px solid #fff;
+  padding: 12px 6px;
+  background: #fff;
+ 
+}
+
+/* content styles */
+
+.item {
+  display: table;
+}
+.content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* centering styles for jsbin */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  display: table;
+}
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+                </style>    
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index_old.html"><img src="/images/logos_.png" title="Retail Offers" width="130" height="85" /></a>
+				</div>
+				
+				   	  
+				<div class="top-searchbar">
+					<form>
+                                            <input type="text" placeholder="Search Offers" ng-model="searchKeyword" /><input type="submit" value="" />
+					</form>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul> 
+                                                    <li><a href="#"><img src="images/appstoore.jpg" width="150"/> <span>(Public Users)</span></a></li>
+							<li><a href="login.html"><span>(Retail Outlets)</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			 <div id="main" role="main">
+                             
+                             
+                              <div class="row">
+    
+      
+      
+    <div ng-repeat="publicdata1 in publicdata  | filter: searchKeyword "  class="col-xs-6 col-sm-2 col-sm-height col-middle">
+      <div class="item">
+        <div class="content">
+          <h1>{{publicdata1.productname}}</h1>
+           <h3> {{ publicdata1.outletname}}, {{ publicdata1.outletcity}}, US </h3> 
+            <img src="{{publicdata1.productimage==''? '': publicdata1.productimage }}" width="100" />
+            <h2> ${{ publicdata1.productprice}}  </h2>
+            
+          
+            Offer Deatils :{{ publicdata1.productoffer}} <br/>
+            points per Item : {{ publicdata1.pointsyoucanearnperproduct}} <br/>
+            Reward Details : {{ publicdata1.rewarddetails}}<br/>
+              
+        </div>
+       </div>
+    </div>
+      
+                             
+                             
+                         
+                             
+                             
+                             
+			      
+			    </div>
+                             
+                             
+                             
+			</div>
+		</div>
+		<!---//End-content---->
+		<!----wookmark-scripts---->
+		
+		  
+		<!----//wookmark-scripts---->
+		<!----start-footer--->
+		<div class="footer">
+			<p><a href="contact.html">Contact Us</a></p>
+		</div>
+                
+                
+                <script src="/js/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+<script src="/js/angular.js"></script>
+<script src="/js/angular-route.js"></script>
+<script src="/js/angular-cookies.js"></script>
+<script src="/js/angular-sanitize.js"></script>
+<script src="/js/angular-resource.js"></script>
+
+
+
+
+<script src="/scripts/indexangualr.js"></script>
+                
+                
+                
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+

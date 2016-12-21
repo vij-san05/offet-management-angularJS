@@ -1,0 +1,55 @@
+ <!-- Main content -->
+        <section class="content">  
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Outlets</h3>
+                  <div class="box-tools">
+                    <div class="input-group">
+                      <input type="text" name="table_search" class="form-control input-sm pull-right"  ng-model="searchKeyword"   style="width: 300px;height:37px" placeholder="Search"/>
+                      <div class="input-group-btn">
+                          <a class="btn btn-primary pull-right" href="#/addoutlets">Add outlets </a>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.box-header -->
+                <div ng-controller="MyControlleredituser" class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>shopid</th>
+                      <th>name</th>
+                      <th>City</th>
+                      <th> Price/points</th>
+                      <th>Status</th>
+                      <th>logo</th>
+                      <th></th>
+                    </tr> 
+                    
+                    <tr class="success-{{outlet.done}}" ng-repeat="outlet in outlets  | filter: searchKeyword  | startFrom:currentPage*pageSize | limitTo:pageSize ">    
+                    <td>{{outlet.outletid}}</td>
+                    <td>{{outlet.nameoutlet}}</td>
+                    <td>{{outlet.city}}</td>
+                    <td>{{outlet.priceperpoint}}</td>
+                    <td><span class="{{outlet.status=='active' ? 'label label-success':'label label-danger'}}">{{outlet.status}}</span></td>
+                    <td><img src="{{outlet.logo}}" width="50" height="50" /><br/></td>
+                    <td>
+                          <button type="button" ng-click="editShop($index)">edit</button>
+                          <button type="button" ng-click="deleteShop($index)"  >delete</button>
+                       
+                    </td>
+                    </tr>
+                 
+                  </table>
+                    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+          </div>
+        </section><!-- /.content -->

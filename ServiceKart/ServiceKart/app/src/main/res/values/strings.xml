@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ServiceKart</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">changepassword</string>
+    <string name="changepassword">ChangePassword</string>
+</resources>

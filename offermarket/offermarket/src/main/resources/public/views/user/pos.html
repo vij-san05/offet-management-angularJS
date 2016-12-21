@@ -1,0 +1,87 @@
+<div ng-controller="MyControllergetUser" >
+<div>
+
+    <div class="form-group has-feedback">   
+        
+        
+   <label for="email">User</label>
+   
+    <div class="form-group has-feedback">
+    <form class="form-horizontal"  name="myFormemail"   >
+   <label for="email">Email</label>
+   <input class="form-control"  type="email" id="email" name="email" ng-model="pos.email" required/>
+   <span ng-show="myFormemail.email.$error.required && myFormemail.email.$dirty">required</span>
+   <span ng-show="!myFormemail.email.$error.required && myFormemail.email.$error.email && myFormemail.email.$dirty">invalid email</span>
+   <br />
+   
+    <label>Outlet Name</label>   
+   <select ng-model="pos.outletid" class="form-control" required name="outletid" id="outletid">
+   <option ng-repeat="outlet in outletsdata" value="{{outlet.outletid}}">Outlet: {{outlet.nameoutlet}} (City: {{outlet.city}}) (Price/Point:${{outlet.priceperpoint}})</option>
+    </select>
+    <span ng-show="myFormemail.outletid.$error.required && myFormemail.outletid.$dirty" style="color:red;"  >Select the Outlet</span> 
+    
+   
+    <button type="button" id="save" class="btn" ng-disabled="!myFormemail.$valid"  ng-click="getUserByEmail()">Search/Save</button> 
+    
+   
+   
+   User {{posdata.email}}  Points. {{posdata.usrPoints}}  Outlet {{posdata.outletid}}
+   
+    
+   </form>
+   
+       
+    <hr/>
+    
+     
+    <form class="form-horizontal"  name="myFormpanel"   >
+   <label>Product</label>   
+   <select ng-model="pos.productid" class="form-control" required name="outletid" id="outletid">
+   <option ng-repeat="product in productdata" value="{{product.productid}}">Product: {{product.productname}} (Price:($) {{product.productprice}})</option>
+    </select>
+    <span ng-show="myFormpanel.outletid.$error.required && myFormpanel.outletid.$dirty" style="color:red;"  >Select the Outlet</span> 
+    
+     <label>Quantity</label>   
+   <input class="form-control"  type="Number" id="quantity" name="quantity" ng-model="pos.quantity" required/>
+    <span ng-show="myFormpanel.quantity.$error.required && myFormpanel.quantity.$dirty" style="color:red;"  >Quantity Must be a number</span> 
+     
+    
+    <br/> <button type="button" id="save" class="btn" ng-click="getCalcualtedResult()"   ng-disabled="!myFormpanel.$valid">Calculate and Show </button>
+     <br/>
+     </form>
+     
+    <form class="form-horizontal"  name="myFormpanelfinal"   >
+       <input class="form-control"  type="hidden" id="totalprice" name="totalprice" ng-model="pos.totalprice" required/>
+     <br/> total price of product :${{pos.totalprice}}
+     <input type="hidden" ng-model="pos.pointacquired"/>
+     <br/>Points Acquired (New Buy):{{pos.pointacquired}}
+     <br/><button type="submit" id="save" class="btn" ng-click="adduserPoints()"   ng-disabled="!myFormpanelfinal.$valid">Add Points </button>
+       <br><hr>(or) <br/><hr>
+     </form>
+    <form class="form-horizontal"  name="myFormpanelfinaldata"   >
+   
+         <br/>Points Deducted (Using points to buy):
+         <input class="form-control"  type="Number" min="1" id="pointsdeducted" name="pointsdeducted" ng-model="pos.pointsdeducted"  required/> 
+     <span ng-show="myFormpanelfinaldata.pointsdeducted.$error.required && myFormpanelfinaldata.pointsdeducted.$dirty" style="color:red;"  >Points Must be a number and less than {{posdata.usrPoints}} </span> 
+     <br/><button type="submit" id="deduct" class="btn" ng-click="deductCalculate()"   ng-disabled="!myFormpanelfinaldata.$valid">Calculate and Show </button>   
+        
+        
+        
+    <br/>
+     
+     <br/><button type="submit" id="save" class="btn"   ng-click="deleteuserPoints()"   ng-disabled="!myFormpanelfinaldata.$valid">Deduct Points </button>
+     <br/> Price of product after use points :  ${{pos.finalprice ==0.0 ? 'check user points' : pos.finalprice}}
+     
+     
+     <br/> 
+     </form>
+     
+      
+     
+<hr/>
+  
+  
+   </div></div>
+   
+   </div>
+</div>

@@ -1,0 +1,167 @@
+<div class="register-box">
+    <a class="btn btn-primary pull-right" href="#/products">back</a>
+    <div class="register-box-body">
+        <p class="login-box-msg"> Upload new Image </p>    
+           
+                
+            <div ng-controller="MyCtrl">
+                <p class="login-box-msg">Product Logo</p> 
+         <!--  <input type="text" value="{{fi}}" ng-model="D"> -->
+           <input class="form-control" type="file" ng-model="aa"  ng-file-select="onFileSelect($files)" accept="image/*"  >
+
+          <!-- <button  ng-click="upload.abort()">Cancel Upload</button> -->
+          
+          <img src="{{product.productimagea}}" width="200" height="200" ng-model="imageloc" /> 
+           </div>
+    </div>
+    
+</div>    
+    
+
+      <div class="register-box-body">
+          
+        <p class="login-box-msg">Product Deatils</p> 
+ 
+<form class="form-horizontal"  name="myForm" ng-submit="createProduct()"  >
+    <div class="form-group has-feedback">     
+   <label for="productid">productId</label>
+   <input class="form-control"  type="text" id="productid" name="productida" check-product ng-model="product.productid" required/>
+   <span ng-show="myForm.productid.$error.required && myForm.productid.$dirty" style="color:red;">Required Number</span>
+    <span class="error" style="color:red" ng-show="myForm.productida.$error.isDuplicatedProduct"  >Product Id already used</span>
+   
+   
+       <br />
+       
+     <label for="productname">Name</label>
+   <input class="form-control"  type="text" id="productname" name="productname" ng-model="product.productname" required/>
+   <span ng-show="myForm.productname.$error.required && myForm.productname.$dirty" style="color:red;">required</span>
+
+   
+   
+       <br />
+       
+       <label for="productquantity">Quantity</label>
+   <input class="form-control"  type="Number" id="productquantity" name="productquantity" ng-model="product.productquantity" required/>
+   <span ng-show="myForm.productquantity.$error.required && myForm.productquantity.$dirty" style="color:red;">Required Number</span>
+
+   
+   
+       <br />
+       
+       <label for="productprice">Price</label>
+   <input class="form-control"  type="Number" id="productprice" name="productprice" ng-model="product.productprice" required/>
+   <span ng-show="myForm.productprice.$error.required && myForm.productprice.$dirty" style="color:red;" >Required Number</span>
+
+   
+   
+       <br />
+       
+       <label for="productdescription">Description</label>
+   <input class="form-control"  type="text" id="productdescription" name="productdescription" ng-model="product.productdescription" required/>
+   <span ng-show="myForm.productdescription.$error.required && myForm.productdescription.$dirty" style="color:red;"  >required</span>
+
+   
+   
+       <br />
+       
+        <label for="productstatus">Product Status</label>
+
+        <input class="form-control"  type="radio" id="status" value="active" name="productstatus" ng-model="product.productstatus"  />Active
+        <input class="form-control"  type="radio" id="status1"     value=" notactive" name="productstatus" ng-model="product.productstatus" /> Not Active
+   <span ng-show="myForm.productstatus.$error.required && myForm.productstatus.$dirty" style="color:red;"  >required</span> 
+   
+   
+       <br />
+       
+      <!--   <label for="productimagea">image</label>
+ 
+   <span ng-show="myForm.productimagea.$error.required && myForm.productimagea.$dirty" style="color:red;" >required</span>
+  -->
+    <input class="form-control"  type="hidden" id="productimagea" name="productimagea" ng-model="product.productimagea" required/>
+       <br/><br />
+   
+       <hr/>
+       <label>Points Deatils</label>
+
+       <br/>
+        <br />
+       
+         <label for="userearningpoints">Earnings / Product </label>
+   <input class="form-control"  type="Number" id="userearningpoints" name="userearningpoints" ng-model="product.userearningpoints" required/>
+   <span ng-show="myForm.userearningpoints.$error.required && myForm.userearningpoints.$dirty" style="color:red;"  >Required Number</span>
+   
+    <br /><br />
+     <hr/>
+       <label>Offer Deails</label>
+       
+         <label for="offername">Offer Name</label>
+   <input class="form-control"  type="text" id="offername" name="offername" ng-model="product.offername" required/>
+   <span ng-show="myForm.offername.$error.required && myForm.offername.$dirty" style="color:red;" >required</span>
+   
+    <br />
+    
+    
+       
+         <label for="offerdetails">Offer Details</label>
+   <input class="form-control"  type="text" id="offerdetails" name="offerdetails" ng-model="product.offerdetails" required/>
+   <span ng-show="myForm.offerdetails.$error.required && myForm.offerdetails.$dirty" style="color:red;"  >required</span>
+       
+       
+       
+         <br />
+    
+    
+       
+         <label for="offerdescription">Description</label>
+   <input class="form-control"  type="text" id="offerdescription" name="offerdescription" ng-model="product.offerdescription" required/>
+   <span ng-show="myForm.offerdescription.$error.required && myForm.offerdescription.$dirty" style="color:red;"  >required</span>
+       
+       
+           <br />
+    
+    
+       
+         <label for="offerstatus">Offer Status</label>   
+        <input class="form-control"  type="radio" id="offerstatus" value="active" name="offerstatus" ng-model="product.offerstatus"  />Active
+        <input class="form-control"  type="radio" id="offerstatus"     value=" notactive" name="offerstatus" ng-model="product.offerstatus" /> Not Active
+   <span ng-show="myForm.offerstatus.$error.required && myForm.offerstatus.$dirty" style="color:red;"  >required</span> 
+   
+   
+   
+   
+       
+           <br /><br />
+              <hr/>
+       <label>Rewars </label>
+    
+       
+         <label for="rewardpoints">Points Needed</label>
+   <input class="form-control"  type="Number" id="rewardpoints" name="rewardpoints" ng-model="product.rewardpoints" required/>
+   <span ng-show="myForm.rewardpoints.$error.required && myForm.rewardpoints.$dirty" style="color:red;"  >Required Number</span>
+        <hr/>
+   <label for="rewardsdetails">Details</label>
+   <input class="form-control"  type="text" id="rewardsdetails" name="rewardsdetails" ng-model="product.rewardsdetails" required/>
+   <span ng-show="myForm.rewardsdetails.$error.required && myForm.rewardsdetails.$dirty" style="color:red;"  >required</span>
+       
+       
+       
+       
+                <hr/>
+   <label>Outlet Name</label>
+       
+       
+
+       
+   <select ng-model="product.outletid" class="form-control" required name="outletid" id="outletid">
+   <option ng-repeat="outlet in outletsdata" value="{{outlet.outletid}}">Outlet: {{outlet.nameoutlet}} (City: {{outlet.city}})</option>
+    </select>
+    <span ng-show="myForm.outletid.$error.required && myForm.outletid.$dirty" style="color:red;"  >Select the Outlet</span>   
+       
+       
+  
+<hr/>
+  
+   <button type="submit" id="save" class="btn" ng-disabled="!myForm.$valid">Save</button>
+   </div>
+   </form>
+   </div>
